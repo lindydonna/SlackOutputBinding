@@ -22,7 +22,7 @@ namespace Host
             config.AddExtension(slackExtension);
 
             // Debug diagnostics!
-            config.GetTooling().DebugDumpGraph(Console.Out);
+            config.CreateMetadataProvider().DebugDumpGraph(Console.Out);
 
             var host = new JobHost(config);
 

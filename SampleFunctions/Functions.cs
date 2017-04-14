@@ -12,7 +12,7 @@ namespace SampleFunctions
     public class Functions
     {
         [NoAutomaticTrigger]
-        public void SimpleSlackBinding(SlackMessage m,
+        public void SimpleSlackBinding(
            [Slack(Text = "Hi")] out SlackMessage message,
            TraceWriter log)
         {
