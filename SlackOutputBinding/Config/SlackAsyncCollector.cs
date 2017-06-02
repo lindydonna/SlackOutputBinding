@@ -45,6 +45,7 @@ namespace SampleExtension.Config
             result.Username = FirstOrDefault(item.Username, attr.Username, config.Username);
             result.IconEmoji = FirstOrDefault(item.IconEmoji, attr.IconEmoji, config.IconEmoji);
             result.IsMarkdown = item.IsMarkdown;
+            result.AsUser = item.AsUser;
 
             return result;
         }
@@ -59,17 +60,7 @@ namespace SampleExtension.Config
             try
             {
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                var payload = JObject.FromObject(new
-                {
-                    text = mergedItem.Text,
-                    channel = mergedItem.Channel,
-                    username = mergedItem.Username,
-                    icon_emoji = mergedItem.IconEmoji,
-                    mrkdwn = mergedItem.IsMarkdown
-                });
-
-                var response = await client.PostAsJsonAsync(attribute.WebHookUrl, payload);
+                var response = await client.PostAsJsonAsync(attribute.WebHookUrl, mergedItem);
             } 
             catch (Exception e)
             {

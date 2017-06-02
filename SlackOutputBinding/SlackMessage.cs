@@ -23,5 +23,8 @@ namespace SampleExtension
 
         [JsonProperty("mrkdwn")]
         public bool IsMarkdown { get; set; }
+
+        [JsonProperty("as_user")]
+        public bool AsUser { get; set; }
     }
 }

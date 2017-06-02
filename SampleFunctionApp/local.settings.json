@@ -3,6 +3,7 @@
   "Values": {
     "AzureWebJobsStorage": "",
     "AzureWebJobsDashboard": "",
-    "AzureWebJobs_ExtensionsPath": "."
+    "AzureWebJobs_ExtensionsPath": ".",
+    "SlackWebHook": "<Slack webhook URI>"
   }
 }

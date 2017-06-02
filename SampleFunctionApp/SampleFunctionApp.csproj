@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>net461</TargetFramework>
     <PostBuildEvent>mkdir Extensions
-copy SlackOutputBinding.dll Extensions\</PostBuildEvent>
+copy SlackBindingExtension.dll Extensions\</PostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.WebJobs" Version="2.1.0-beta1" />
