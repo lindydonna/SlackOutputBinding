@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.3
+VisualStudioVersion = 15.0.26507.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlackOutputBinding", "SlackOutputBinding\SlackOutputBinding.csproj", "{1531112B-CD9F-4AD8-BD7B-CF90444F4053}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Host", "Host\Host.csproj", "{2E233B6F-345B-4546-B415-6E54D0668F62}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleFunctions", "SampleFunctions\SampleFunctions.csproj", "{7FE81CEF-3763-499A-A914-406CFA7A925A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleFunctionApp", "SampleFunctionApp\SampleFunctionApp.csproj", "{0EBCE513-E566-484F-B0C7-480B837B46E1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{7FE81CEF-3763-499A-A914-406CFA7A925A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FE81CEF-3763-499A-A914-406CFA7A925A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FE81CEF-3763-499A-A914-406CFA7A925A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EBCE513-E566-484F-B0C7-480B837B46E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EBCE513-E566-484F-B0C7-480B837B46E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EBCE513-E566-484F-B0C7-480B837B46E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EBCE513-E566-484F-B0C7-480B837B46E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

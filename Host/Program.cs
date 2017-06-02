@@ -2,10 +2,9 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 
 using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Sample;
-using Microsoft.Azure.WebJobs.Sample.Config;
 using System;
 using SampleFunctions;
+using SampleExtension.Config;
 
 namespace Host
 {
@@ -31,6 +30,8 @@ namespace Host
             var method = typeof(Functions).GetMethod("SimpleSlackBinding");
             host.Call(method);
 
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
             // host.RunAndBlock();
         }
     }

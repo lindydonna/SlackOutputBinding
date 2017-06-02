@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Microsoft.Azure.WebJobs.Sample
+namespace SampleExtension
 {
     public class SlackMessage
     {
@@ -21,13 +21,7 @@ namespace Microsoft.Azure.WebJobs.Sample
         [JsonProperty("icon_emoji")]
         public string IconEmoji { get; set; }
 
-        //[JsonProperty("icon_url")]
-        //public Uri IconUrl { get; set; }
-
         [JsonProperty("mrkdwn")]
         public bool IsMarkdown { get; set; }
-
-        //[JsonProperty("link_names")]
-        //public bool LinkNames { get; set; }
     }
 }

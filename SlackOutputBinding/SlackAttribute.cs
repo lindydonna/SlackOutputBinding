@@ -1,22 +1,18 @@
 ﻿// Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 
+using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Description;
 using Microsoft.Azure.WebJobs.Host.Config;
 using System;
 
-namespace Microsoft.Azure.WebJobs.Sample
+namespace SampleExtension
 {
     /// <summary>
     /// Attribute used to bind a parameter to a Slack. Message will be posted to Slack when the 
     /// method completes.
     /// </summary>
-    /// <remarks>
-    /// The method parameter can be of type <see cref="Microsoft.Azure.WebJobs.Sample.SlackMessage"/> or a reference
-    /// to one ('ref' parameter). When using a reference parameter, you can indicate that the message
-    /// should not be sent by setting it to <see langword="null"/> before your job function returns.
-    /// </remarks>
-    [AttributeUsage(AttributeTargets.Parameter)]
+    [AttributeUsage(AttributeTargets.Parameter | AttributeTargets.ReturnValue)]
     [Binding]
     public sealed class SlackAttribute : Attribute
     {

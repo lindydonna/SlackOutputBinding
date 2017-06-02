@@ -1,29 +1,33 @@
-﻿using System;
+﻿using Microsoft.Azure.WebJobs;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Microsoft.Azure.WebJobs.Sample.Config
+namespace SampleExtension.Config
 {
     internal class SlackAsyncCollector : IAsyncCollector<SlackMessage>
     {
-        private SlackConfiguration _config;
-        private SlackAttribute _attr;
+        private SlackConfiguration config;
+        private SlackAttribute attr;
+        private static HttpClient client = new HttpClient();
 
         public SlackAsyncCollector(SlackConfiguration config, SlackAttribute attr)
         {
-            _config = config;
-            _attr = attr;
+            this.config = config;
+            this.attr = attr;
         }
             
-        public Task AddAsync(SlackMessage item, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task AddAsync(SlackMessage item, CancellationToken cancellationToken = default(CancellationToken))
         {
-            var mergedItem = MergeMessageProperties(item, _config, _attr);
-            SendSlackMessage(mergedItem);
-
-            return Task.CompletedTask;
+            var mergedItem = MergeMessageProperties(item, config, attr);
+            await SendSlackMessage(mergedItem, attr);
         }
 
         public Task FlushAsync(CancellationToken cancellationToken = default(CancellationToken))
@@ -50,9 +54,27 @@ namespace Microsoft.Azure.WebJobs.Sample.Config
             return values.FirstOrDefault(v => !string.IsNullOrEmpty(v));
         }
 
-        private static void SendSlackMessage(SlackMessage mergedItem)
+        private static async Task SendSlackMessage(SlackMessage mergedItem, SlackAttribute attribute)
         {
-            Console.WriteLine(mergedItem.Text);
+            try
+            {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                var payload = JObject.FromObject(new
+                {
+                    text = mergedItem.Text,
+                    channel = mergedItem.Channel,
+                    username = mergedItem.Username,
+                    icon_emoji = mergedItem.IconEmoji,
+                    mrkdwn = mergedItem.IsMarkdown
+                });
+
+                var response = await client.PostAsJsonAsync(attribute.WebHookUrl, payload);
+            } 
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }

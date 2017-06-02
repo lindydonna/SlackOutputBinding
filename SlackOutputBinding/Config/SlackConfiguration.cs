@@ -6,7 +6,7 @@ using Microsoft.Azure.WebJobs.Host.Config;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace Microsoft.Azure.WebJobs.Sample.Config
+namespace SampleExtension.Config
 {
     /// <summary>
     /// Extension for binding <see cref="SlackMessage"/>.

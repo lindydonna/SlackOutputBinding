@@ -1,6 +1,6 @@
 ﻿using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
-using Microsoft.Azure.WebJobs.Sample;
+using SampleExtension;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +13,7 @@ namespace SampleFunctions
     {
         [NoAutomaticTrigger]
         public void SimpleSlackBinding(
-           [Slack(Text = "Hi")] out SlackMessage message,
+           [Slack(Text = "Hi", WebHookUrl = "SlackWebHook", IconEmoji = ":simplesmile:")] out SlackMessage message,
            TraceWriter log)
         {
             message = new SlackMessage(); // no customization.            
