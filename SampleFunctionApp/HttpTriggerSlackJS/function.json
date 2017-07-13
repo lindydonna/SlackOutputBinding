@@ -1,0 +1,23 @@
+﻿{
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "authLevel": "function",
+      "direction": "in",
+      "name": "message"
+    },
+    {
+      "type": "slack",
+      "webHookUrl": "SlackWebHook",
+      "isMarkdown": false,
+      "direction": "out",
+      "name": "slackMessage"
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}

@@ -5,6 +5,11 @@
 copy SlackBindingExtension.dll Extensions\</PostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="HttpTriggerSlackJS\HttpTriggerSlackJS.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Microsoft.Azure.WebJobs" Version="2.1.0-beta1" />
     <PackageReference Include="Microsoft.Azure.WebJobs.Extensions" Version="2.1.0-beta1" />
     <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Http" Version="1.0.0-beta1" />
@@ -20,6 +25,9 @@ copy SlackBindingExtension.dll Extensions\</PostBuildEvent>
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="HttpTriggerSlackJS\function.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="local.settings.json">
