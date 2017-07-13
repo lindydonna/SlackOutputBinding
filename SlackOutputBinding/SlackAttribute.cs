@@ -3,7 +3,6 @@
 
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Description;
-using Microsoft.Azure.WebJobs.Host.Config;
 using System;
 
 namespace SampleExtension

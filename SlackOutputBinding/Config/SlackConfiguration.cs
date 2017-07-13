@@ -57,15 +57,15 @@ namespace SampleExtension.Config
         public string Channel { get; set; }
         #endregion
 
-        public void Initialize(ExtensionConfigContext context)
-        {
-            // add converter between string and SlackMessage
-            // Allows a user to bind to IAsyncCollector<string>, and the sdk will convert that to IAsyncCollector<SampleItem>
-            context.AddConverter<JObject, SlackMessage>(input => input.ToObject<SlackMessage>());
+    public void Initialize(ExtensionConfigContext context)
+    {
+        // add converter between JObject and SlackMessage
+        // Allows a user to bind to IAsyncCollector<JObject>, and the sdk will convert that to IAsyncCollector<SlackMessage>
+        context.AddConverter<JObject, SlackMessage>(input => input.ToObject<SlackMessage>());
 
-            // Add a binding rule for Collector
-            context.AddBindingRule<SlackAttribute>()
-                .BindToCollector<SlackMessage>(attr => new SlackAsyncCollector(this, attr));
-        }
+        // Add a binding rule for Collector
+        context.AddBindingRule<SlackAttribute>()
+            .BindToCollector<SlackMessage>(attr => new SlackAsyncCollector(this, attr));
+    }
     }
 }

@@ -26,5 +26,10 @@ namespace SampleExtension
 
         [JsonProperty("as_user")]
         public bool AsUser { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Text}, {Channel}, {IconEmoji}";
+        }
     }
 }
