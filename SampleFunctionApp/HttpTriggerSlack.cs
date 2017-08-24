@@ -9,16 +9,14 @@ namespace SampleFunctionApp
     public static class HttpTriggerSlack
     {
         [FunctionName("HttpTriggerSlack")]
-        public static HttpResponseMessage Run(
-            [HttpTrigger] SlackMessage message, HttpRequestMessage req,
+        public static string Run(
+            [HttpTrigger] SlackMessage message, 
             [Slack(WebHookUrl = "SlackWebHook")] out SlackMessage slackMessage,
             TraceWriter log)
         {
-            log.Info($"Request received: {req}");
-
             slackMessage = message;
 
-            return req.CreateResponse(HttpStatusCode.OK);
+            return "Ok";
         }
     }
 }

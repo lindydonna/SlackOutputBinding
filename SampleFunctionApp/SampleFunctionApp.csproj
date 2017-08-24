@@ -1,21 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net461</TargetFramework>
-    <PostBuildEvent>mkdir Extensions
-copy SlackBindingExtension.dll Extensions\</PostBuildEvent>
+    <PostBuildEvent>
+      if not exist $(OutDir)Extensions mkdir $(OutDir)Extensions
+      copy $(TargetDir)bin\SlackBindingExtension.dll Extensions\</PostBuildEvent>
   </PropertyGroup>
+
   <ItemGroup>
     <Content Include="HttpTriggerSlackJS\HttpTriggerSlackJS.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.WebJobs" Version="2.1.0-beta1" />
-    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions" Version="2.1.0-beta1" />
-    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Http" Version="1.0.0-beta1" />
-    <PackageReference Include="Microsoft.Azure.WebJobs.ServiceBus" Version="2.1.0-beta1" />
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
-    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.0-alpha5" />
+    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.2" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SlackOutputBinding\SlackOutputBinding.csproj" />

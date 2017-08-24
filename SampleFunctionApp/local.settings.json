@@ -4,6 +4,5 @@
     "AzureWebJobsStorage": "",
     "AzureWebJobsDashboard": "",
     "AzureWebJobs_ExtensionsPath": ".",
-    "SlackWebHook": "<Slack webhook URI>"
   }
 }
