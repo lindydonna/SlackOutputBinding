@@ -22,6 +22,6 @@ Just reference the Slack binding assembly and use the `[Slack]` attribute in you
 
 For JavaScript, the process is currently manual. Do the following:
 1. Copy the extension to an output folder such as "extensions". This can be done in a post-build step in the .csproj
-2. Add the app setting `AzureWebJobs_ExtensionsPath` to local.settings.json (or in Azure, in App Settings). Set the value to your "extension" folder from the previous step.
+2. Add the app setting `AzureWebJobs_ExtensionsPath` to local.settings.json (or in Azure, in App Settings). Set the value to the **parent** of your "extension" folder from the previous step.
 
 The project **SampleFunction** app already has a post-build step that copies the assembly to the folder **Extensions**.             
